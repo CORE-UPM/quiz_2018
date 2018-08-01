@@ -59,6 +59,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(partials());
 app.use(flash());
 
+// Allow CORS
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 // Dynamic Helper:
 app.use(function(req, res, next) {
 
